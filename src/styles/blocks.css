@@ -773,3 +773,47 @@ main { overflow-x: clip; }
 .unit__includes { margin: .8rem 0 0; padding-left: 1.1rem; font-size: .9rem; color: var(--ink-soft); }
 .unit__includes li { margin-bottom: .25rem; }
 .unit__slot { font-size: .9rem; color: #8f3626; border-bottom: 2px dotted #8f3626; }
+
+/* ---------- Split hero ---------- */
+.hero--split { display: grid; grid-template-columns: 45% 55%; min-height: 100vh; min-height: 100dvh;
+  background: var(--paper); }
+.hero__type { display: flex; flex-direction: column; justify-content: center; gap: .9rem;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 4rem); }
+.hero__type h1 { font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: .98; letter-spacing: -.035em;
+  margin: .3rem 0 .2rem; max-width: 13ch; text-wrap: balance; }
+.hero__sub { font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.55; color: var(--ink-soft);
+  max-width: 42ch; text-wrap: pretty; margin: 0; }
+.hero__meta { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; color: var(--ink-mute);
+  margin: .4rem 0 0; }
+.hero__pic { position: relative; overflow: hidden; background: var(--shell); }
+.hero__pic-slot { position: absolute; inset: 0; display: grid; place-items: center;
+  font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase;
+  color: #8f3626; background: repeating-linear-gradient(45deg, var(--shell), var(--shell) 12px,
+    var(--sand) 12px, var(--sand) 24px); }
+@media (max-width: 900px) {
+  .hero--split { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .hero__pic { min-height: 42vh; }
+}
+@media (max-height: 620px) and (min-width: 901px) {
+  .hero__type h1 { font-size: clamp(1.9rem, 4vw, 3rem); }
+  .hero__type { gap: .6rem; }
+}
+@media (max-height: 460px) {
+  .hero--split { grid-template-columns: 48% 52%; }
+  .hero__type h1 { font-size: clamp(1.5rem, 3.4vw, 2.2rem); }
+  .hero__sub { font-size: .92rem; }
+  .hero__type { gap: .45rem; padding-block: 1.2rem; }
+}
+
+/* ---------- Footer ---------- */
+.footer__grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  padding-block: clamp(2.5rem, 5vw, 4rem); }
+.footer__mark { font-family: var(--serif); font-size: 1.4rem; margin: 0 0 .5rem; }
+.footer__head { font-family: var(--mono); font-size: .64rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-mute); margin: 0 0 .6rem; }
+.footer__grid nav a, .footer__grid > div > a { display: block; min-height: 44px; line-height: 44px;
+  text-decoration: none; color: var(--ink); }
+.footer__grid nav a:hover, .footer__grid > div > a:hover { color: var(--accent-text); }
+
+/* The step that carries the friction is stated, not buried. */
+.step--flag { border-left: 3px solid var(--accent); padding-left: 1.4rem; margin-left: -.2rem; }

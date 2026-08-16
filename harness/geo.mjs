@@ -40,6 +40,12 @@ export async function run({ url, routes = ["/"] }) {
             // so a tap target size is meaningless for them.
             if (b.right < 0 || b.bottom < 0 || b.left > window.innerWidth) continue;
 
+            // Injected platform tooling, not the site's markup. The Vercel
+            // preview toolbar renders its own controls into every preview
+            // deployment; judging a property on those is judging the wrong
+            // thing, and it does not exist in production.
+            if (el.closest("[data-vercel-toolbar], vercel-live-feedback, [class*='index-module__']")) continue;
+
             // WCAG 2.2 SC 2.5.8 exempts a link that flows inline inside a
             // sentence: you cannot enlarge it without breaking the paragraph.
             // Only standalone controls are held to the 44px tap target.

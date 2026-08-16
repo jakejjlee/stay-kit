@@ -17,9 +17,8 @@ const SECRET_READ = Symbol("secret-read");
  * `harness/secrets.mjs` then proves the guarantee at build time by fetching
  * every public route and asserting no declared secret appears in the HTML.
  *
- * This exists because the first Bluebill build rendered a gate code and a wifi
- * password into the public HTML of its guidebook. A noindex tag is not access
- * control.
+ * This exists because a property site once rendered a gate code and a wifi
+ * password into public HTML. A noindex tag is not access control.
  */
 export type Secret = {
   readonly [SECRET_BRAND]: true;

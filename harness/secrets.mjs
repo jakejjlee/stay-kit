@@ -3,9 +3,8 @@
  * served HTML.
  *
  * The type system stops a credential being rendered by accident. This stops it
- * being rendered on purpose, and it is the check that would have caught the
- * gate code and wifi password sitting in the Bluebill guidebook. Values come
- * from STAY_KIT_SECRETS at verify time, never from a committed file.
+ * being rendered on purpose. Values come from STAY_KIT_SECRETS at verify
+ * time, never from a committed file.
  */
 export async function run({ url, routes, secrets }) {
   const lines = [];

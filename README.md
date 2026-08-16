@@ -32,5 +32,5 @@ symbol. `validateProperty` refuses a secret declared anywhere but `arrival`,
 only the arrival module may open one, and `stay-kit verify` fetches every
 public route to prove none appears in served HTML.
 
-This exists because the first build of a property site put a gate code and a
-wifi password into public HTML. A noindex tag is not access control.
+This exists because a property site once put a gate code and a wifi password
+into public HTML. A noindex tag is not access control.

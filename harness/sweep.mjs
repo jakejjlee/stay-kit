@@ -1,4 +1,4 @@
-// Ported from the Bluebill verification run. Exports run({url, routes})
+// Ported from a live property verification run. Exports run({url, routes})
 // returning { pass, lines } so the CLI can aggregate and set an exit code.
 export async function run({ url, routes = ['/'] }) {
   const U = url; const ROUTES = routes;

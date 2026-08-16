@@ -6,8 +6,8 @@ import { FactList } from "../components/FactList";
 /**
  * The blocks a property composes its own page from.
  *
- * Deliberately NOT one canned page builder. Bluebill's homepage is
- * art-directed and Lincoln's needs a different arc; forcing both through a
+ * Deliberately NOT one canned page builder. One property's homepage may be
+ * art-directed and another's needs a different arc; forcing both through a
  * single template is how a system flattens the thing it was meant to protect.
  * The kit supplies the bones, each property composes them.
  */

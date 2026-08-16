@@ -790,20 +790,38 @@ main { overflow-x: clip; }
   font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase;
   color: #8f3626; background: repeating-linear-gradient(45deg, var(--shell), var(--shell) 12px,
     var(--sand) 12px, var(--sand) 24px); }
+/* Stacked on a phone. The picture takes what is left rather than claiming a
+   fixed share, so the type block can never push the hero past the fold. */
 @media (max-width: 900px) {
-  .hero--split { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
-  .hero__pic { min-height: 42vh; }
+  .hero--split { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
+  .hero__pic { min-height: 26vh; }
 }
-@media (max-height: 620px) and (min-width: 901px) {
-  .hero__type h1 { font-size: clamp(1.9rem, 4vw, 3rem); }
-  .hero__type { gap: .6rem; }
+
+/* The max-height ladder. Type and air step back as the window gets shorter,
+   so the hero fills the fold exactly instead of overflowing it. The scroll
+   cue goes first; the buttons never go. */
+@media (max-height: 720px) {
+  .hero__type h1 { font-size: clamp(1.8rem, 6.4vw, 2.6rem); }
+  .hero__type { gap: .7rem; padding-block: 1.6rem; }
+}
+@media (max-height: 620px) {
+  .hero__type h1 { font-size: clamp(1.6rem, 5.6vw, 2.1rem); }
+  .hero__sub { font-size: .95rem; }
+  .hero__type { gap: .55rem; padding-block: 1.2rem; }
+  .hero__meta { display: none; }
+  .hero--split { grid-template-rows: auto minmax(0, 1fr); }
+  .hero__pic { min-height: 20vh; }
 }
 @media (max-height: 460px) {
-  .hero--split { grid-template-columns: 48% 52%; }
-  .hero__type h1 { font-size: clamp(1.5rem, 3.4vw, 2.2rem); }
-  .hero__sub { font-size: .92rem; }
-  .hero__type { gap: .45rem; padding-block: 1.2rem; }
+  .hero--split { grid-template-columns: 48% 52%; grid-template-rows: 1fr; }
+  .hero__type h1 { font-size: clamp(1.4rem, 3.4vw, 2rem); }
+  .hero__sub { font-size: .88rem; max-width: 34ch; }
+  .hero__type { gap: .4rem; padding-block: .9rem; }
+  .hero__pic { min-height: 0; }
 }
+
+/* A standalone link is a tap target, not prose. */
+.steps li a { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* ---------- Footer ---------- */
 .footer__grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));

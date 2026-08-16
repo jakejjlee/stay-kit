@@ -1,17 +1,30 @@
 import Link from "next/link";
+import type { ModuleName } from "../content/types";
 
-const TABS = [
+/**
+ * Cross-links between the guest pages. Only renders a tab for a module the
+ * property actually has, so a building with no association rules does not
+ * advertise a rules page that would 404.
+ */
+const TABS: { href: string; key: ModuleName; label: string }[] = [
   { href: "/apply", key: "apply", label: "Applying" },
   { href: "/guidebook", key: "guidebook", label: "The guidebook" },
-  { href: "/rules", key: "rules", label: "Building rules" },
-] as const;
+  { href: "/rules", key: "rules", label: "House rules" },
+];
 
-export type GuideTab = (typeof TABS)[number]["key"];
+export function GuideNav({
+  current,
+  modules,
+}: {
+  current: ModuleName;
+  modules: ModuleName[];
+}) {
+  const tabs = TABS.filter((t) => modules.includes(t.key));
+  if (tabs.length < 2) return null;
 
-export function GuideNav({ current }: { current: GuideTab }) {
   return (
     <nav className="guidenav" aria-label="Guide sections">
-      {TABS.map((t) => (
+      {tabs.map((t) => (
         <Link
           key={t.key}
           href={t.href}

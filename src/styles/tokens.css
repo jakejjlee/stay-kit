@@ -1,0 +1,106 @@
+/* stay-kit design tokens.
+   A property overrides exactly two values, --accent and --accent-text.
+   Everything else derives, so a new property is a colour and a mark. */
+:root {
+  --accent: #2f7d6a;
+  --accent-text: #266857;
+  --accent-deep: color-mix(in oklab, var(--accent) 68%, #10231d);
+  --accent-bright: color-mix(in oklab, var(--accent) 82%, #ffffff);
+  --accent-tint: color-mix(in oklab, var(--accent) 8%, transparent);
+}
+
+/* ============================================================
+   Bluebill : coastal editorial system
+   Direction A: cinematic hero, editorial sand-paper sections
+   ============================================================ */
+
+:root {
+  /* palette : two clearly distinct light tones for tonal pacing */
+  --paper: #fdfaf4;     /* lightest : the "clean" sections */
+  --sand: #efe6d6;      /* warmer, clearly darker than paper : the "warm" sections */
+  --shell: #e7dcc7;     /* deepest warm band, for interstitials */
+  --sand-2: #e5d9c3;
+  --sand-3: #d9cbb1;    /* borders/hairlines on light */
+  --ink: #15211d;       /* near-black mangrove for dark sections */
+  --ink-2: #1c2a26;
+  --ink-soft: #38473f;
+  --ink-mute: #55605a;  /* measured: 4.82 shell / 5.29 sand / 6.29 paper */
+  --emerald: #2f7d6a;      /* borders and fills only, 3.98:1 on sand as text */
+  --emerald-text: #266857; /* AA-safe emerald for text on LIGHT surfaces only */
+  --emerald-bright: #3ca085;
+  --emerald-deep: #21463d;
+  --tan: #7d5b20;       /* measured: 5.95 paper / 5.00 sand / 4.56 shell */
+  --tan-tint: #b98a4f;  /* the old value, kept for non-text tints only */
+  --aqua: #b8e8d8;      /* light accent for dark sections */
+  --aqua-soft: #cdddd6;
+
+  /* type faces */
+  --serif: var(--font-display), Georgia, "Times New Roman", serif;
+  --grotesk: var(--font-schibsted), system-ui, -apple-system, sans-serif;
+  --mono: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  /* type scale: six steps with real distance between them. Replaces eight
+     hand-tuned clamps that all landed in the same 59px band. */
+  --t-hero: clamp(2.9rem, 7.4vw, 6.4rem);
+  --t-1:    clamp(2.25rem, 4.6vw, 3.6rem);
+  --t-2:    clamp(1.75rem, 3vw, 2.4rem);
+  --t-3:    1.6rem;
+  --t-body: 1.0625rem;
+  --t-small: .8125rem;
+
+  /* tracking scales with size, rather than one global value */
+  --track-s: -.005em;
+  --track-m: -.015em;
+  --track-l: -.028em;
+  --track-xl: -.038em;
+
+  /* easing: three considered curves. Previously every transition on the site
+     omitted the timing function and inherited the browser default. */
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+  --ease-emph: cubic-bezier(.65, 0, .35, 1);
+  --ease-spring: linear(0, .006, .025 2.8%, .101 6.1%, .539 18.9%, .721 25.3%,
+    .849 31.5%, .937 38.1%, .968 41.8%, .991 45.7%, 1.006 50.1%, 1.015 60%, 1.006 76.2%, 1);
+
+  --maxw: 1160px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --radius: 16px;
+  --radius-btn: 6px;   /* squared buttons against soft image corners */
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 6.5rem; }
+html, body { overflow-x: hidden; max-width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* visible focus for keyboard users, on both light and dark surfaces */
+:focus-visible { outline: 2.5px solid var(--emerald-bright); outline-offset: 3px; border-radius: 3px; }
+.section--ink :focus-visible, .hero :focus-visible, .footer :focus-visible,
+.sitehead :focus-visible, .mobar :focus-visible, .dayarc :focus-visible, .closing :focus-visible { outline-color: var(--aqua); }
+
+/* skip link */
+.skip-link {
+  position: absolute; left: 1rem; top: -100px; z-index: 200;
+  background: var(--ink); color: #fff; padding: .7em 1.1em; border-radius: 8px;
+  font-family: var(--grotesk); font-weight: 600; font-size: .9rem; text-decoration: none; transition: top .2s var(--ease-out);
+}
+.skip-link:focus { top: 1rem; }
+
+body {
+  font-family: var(--grotesk);
+  color: var(--ink);
+  background: var(--sand);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+::selection { background: var(--emerald); color: #fff; }
+
+/* ---------- primitives ---------- */

@@ -25,10 +25,14 @@
   --ink-2: #1c2a26;
   --ink-soft: #38473f;
   --ink-mute: #55605a;  /* measured: 4.82 shell / 5.29 sand / 6.29 paper */
-  --emerald: #2f7d6a;      /* borders and fills only, 3.98:1 on sand as text */
-  --emerald-text: #266857; /* AA-safe emerald for text on LIGHT surfaces only */
-  --emerald-bright: #3ca085;
-  --emerald-deep: #21463d;
+  /* Legacy names, kept because the block layer references them in 35 places.
+     They are now aliases of the accent, which is what makes a property's
+     accent actually take effect. Setting --accent alone was silently doing
+     nothing before this. */
+  --emerald: var(--accent);            /* borders and fills */
+  --emerald-text: var(--accent-text);  /* text on LIGHT surfaces only */
+  --emerald-bright: var(--accent-bright);
+  --emerald-deep: var(--accent-deep);
   --tan: #7d5b20;       /* measured: 5.95 paper / 5.00 sand / 4.56 shell */
   --tan-tint: #b98a4f;  /* the old value, kept for non-text tints only */
   --aqua: #b8e8d8;      /* light accent for dark sections */

@@ -22,5 +22,62 @@
     "react": "^19.2.8",
     "typescript": "^5.9.3",
     "vitest": "^3.2.7"
+  },
+  "dependencies": {
+    "resend": "^4.8.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./content/types": {
+      "types": "./src/content/types.ts",
+      "import": "./src/content/types.ts",
+      "default": "./src/content/types.ts"
+    },
+    "./content/validate": {
+      "types": "./src/content/validate.ts",
+      "import": "./src/content/validate.ts",
+      "default": "./src/content/validate.ts"
+    },
+    "./blocks": {
+      "types": "./src/blocks/index.tsx",
+      "import": "./src/blocks/index.tsx",
+      "default": "./src/blocks/index.tsx"
+    },
+    "./blocks/UnitsTable": {
+      "types": "./src/blocks/UnitsTable.tsx",
+      "import": "./src/blocks/UnitsTable.tsx",
+      "default": "./src/blocks/UnitsTable.tsx"
+    },
+    "./components/*": {
+      "types": "./src/components/*.tsx",
+      "import": "./src/components/*.tsx",
+      "default": "./src/components/*.tsx"
+    },
+    "./modules/guidebook": {
+      "types": "./src/modules/guidebook/index.tsx",
+      "import": "./src/modules/guidebook/index.tsx",
+      "default": "./src/modules/guidebook/index.tsx"
+    },
+    "./modules/arrival": {
+      "types": "./src/modules/arrival/index.tsx",
+      "import": "./src/modules/arrival/index.tsx",
+      "default": "./src/modules/arrival/index.tsx"
+    },
+    "./api/inquire": {
+      "types": "./src/api/inquire.ts",
+      "import": "./src/api/inquire.ts",
+      "default": "./src/api/inquire.ts"
+    },
+    "./lib/*": {
+      "types": "./src/lib/*.ts",
+      "import": "./src/lib/*.ts",
+      "default": "./src/lib/*.ts"
+    },
+    "./styles/tokens.css": "./src/styles/tokens.css",
+    "./styles/blocks.css": "./src/styles/blocks.css"
   }
 }

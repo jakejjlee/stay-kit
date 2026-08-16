@@ -835,3 +835,9 @@ main { overflow-x: clip; }
 
 /* The step that carries the friction is stated, not buried. */
 .step--flag { border-left: 3px solid var(--accent); padding-left: 1.4rem; margin-left: -.2rem; }
+
+/* The footer is a dark surface, so muted text there cannot use the
+   light-surface ink token. Measured 2.53:1 before this. */
+.footer .muted, .footer__head { color: #b9c2bc; }
+.footer__grid nav a, .footer__grid > div > a { color: var(--sand); }
+.footer__grid nav a:hover, .footer__grid > div > a:hover { color: var(--aqua); }

@@ -78,6 +78,11 @@
       "default": "./src/lib/*.ts"
     },
     "./styles/tokens.css": "./src/styles/tokens.css",
-    "./styles/blocks.css": "./src/styles/blocks.css"
+    "./styles/blocks.css": "./src/styles/blocks.css",
+    "./modules/apply": {
+      "types": "./src/modules/apply/index.tsx",
+      "import": "./src/modules/apply/index.tsx",
+      "default": "./src/modules/apply/index.tsx"
+    }
   }
 }

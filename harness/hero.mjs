@@ -6,8 +6,8 @@ import { chromium } from "playwright";
  *
  * Both halves matter. A hero that falls short leaves a strip of the next
  * section showing; a hero that overflows pushes the button below the fold,
- * which is worse and is the failure the Bluebill build actually had on four
- * of these thirteen rows. Landscape phone is the row that breaks; never drop it.
+ * which is worse, and is a failure a real build had on four of these thirteen
+ * rows. Landscape phone is the row that breaks; never drop it.
  */
 export const GEOMETRIES = [
   ["iPhone 16 Pro", 402, 874],

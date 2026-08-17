@@ -1,5 +1,5 @@
 ---
-status: foundation-built-and-verified
+status: shipped, first property live on the kit
 ---
 
 # Resume: stay-kit, one property-site system
@@ -9,10 +9,22 @@ status: foundation-built-and-verified
 
 ## Status
 
-The kit's foundation is built, tested and its harness proven against live
-production. Tasks 1 to 8 of the 10 task plan are done. Tasks 9 and 10, the
-Bluebill migration and the Lincoln build, have NOT started. Nothing is broken:
-Bluebill production is untouched and still live.
+The kit works and 243 Lincoln Avenue is live on it, verified by the kit's own
+harness. The repo is PUBLIC at github.com/jakejjlee/stay-kit (Jake's call, so
+Vercel's build machine can install it). Bluebill is untouched and still live on
+its own code; migrating it is the one task left.
+
+**Lincoln, live and public:** https://lincoln-pxeno2yf3-iser-labs.vercel.app
+(/, /apply, /guidebook)
+
+```
+PASS naming · PASS secrets · PASS hero 13/13
+PASS geometry 39/39 · PASS accessibility 0 violations
+LCP 904ms to 1716ms, CLS under 0.002, ~188KB
+```
+
+Lincoln is one content file plus three lines of app composition. No new
+components were written for it after the blocks existed.
 
 **Spec:** `docs/superpowers/specs/2026-08-16-stay-kit-design.md`
 **Plan:** `docs/superpowers/plans/2026-08-16-stay-kit.md`
@@ -87,6 +99,22 @@ INFO  perf         / LCP 2900ms  CLS 0  ~461KB / 19 req
 
 The secrets check is proven both directions: it fails on a string genuinely in
 the HTML, and passes with the real gate code and wifi password.
+
+## Bugs the build found, worth remembering
+
+1) **The accent did nothing.** The block layer references `--emerald` in 35
+   places, so a property setting `--accent` rendered in the first property's
+   green. Caught by looking at the deployed page, not by any test. The legacy
+   names are now aliases of the accent.
+2) **A `link:` dependency does not exist on the build machine.** The first two
+   deploys failed. Pinning by git ref is the only thing that works, and the
+   repo had to be public for the builder to fetch it.
+3) **Vercel serves a holding page for a failed deploy, and it returns 200.** I
+   reported those 200s as a pass before checking the body. Status codes are not
+   evidence; the content is.
+4) **The nav advertised a route that did not exist**, so Next prefetched
+   `/apply` into a 404. A module listed in content must have a route.
+5) **The footer used a light-surface text token on a dark background**, 2.53:1.
 
 ## Not started
 

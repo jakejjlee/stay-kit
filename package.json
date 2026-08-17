@@ -83,6 +83,11 @@
       "types": "./src/modules/apply/index.tsx",
       "import": "./src/modules/apply/index.tsx",
       "default": "./src/modules/apply/index.tsx"
+    },
+    "./components/Fig": {
+      "types": "./src/components/Fig.tsx",
+      "import": "./src/components/Fig.tsx",
+      "default": "./src/components/Fig.tsx"
     }
   }
 }

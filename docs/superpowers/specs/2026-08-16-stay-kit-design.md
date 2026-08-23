@@ -14,7 +14,7 @@ end of the year.
 
 `stay-kit` holds the design system, the blocks, the modules, the content types and the
 verification harness. A property repo holds only its own content, photographs, accent
-colour and mark.
+color and mark.
 
 ## Decisions taken at the gate
 
@@ -25,7 +25,7 @@ colour and mark.
    feed can drive it later.
 4) **Order:** extract the kit first, then build Lincoln on it as the proof.
 5) **Brand:** shared bones (type system, layout language, blocks). Each property sets its
-   own accent colour and its own mark.
+   own accent color and its own mark.
 6) **Modules:** all four proposed, plus a qualifying inquiry, an arrival pack, and a soft
    hold on a unit.
 7) **Arrival pack protection:** an unguessable per-booking link that expires after checkout.

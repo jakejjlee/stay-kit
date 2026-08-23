@@ -2,7 +2,7 @@
 
 One property-site system, many properties.
 
-A property repo holds its content, its photographs, an accent colour and a mark.
+A property repo holds its content, its photographs, an accent color and a mark.
 Everything else lives here: the design system, the blocks, nine opt-in modules,
 and the verification harness every property ships against.
 

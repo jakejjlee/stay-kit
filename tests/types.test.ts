@@ -32,7 +32,7 @@ describe("secrets", () => {
     expect(revealSecret(secret("0516"))).toBe("0516");
   });
 
-  it("recognises its own boxes and rejects anything else", () => {
+  it("recognizes its own boxes and rejects anything else", () => {
     expect(isSecret(secret("x"))).toBe(true);
     expect(isSecret("x")).toBe(false);
     expect(isSecret({ value: "x" })).toBe(false);

@@ -1,3 +1,6 @@
 node_modules
 .next
 .DS_Store
+
+# Private working notes, never committed
+docs/superpowers/RESUME-*.md

@@ -4,8 +4,8 @@ status: shipped, first property live on the kit
 
 # Resume: stay-kit, one property-site system
 
-**Working dir:** `/Users/macbook/Claude/stay-kit` (new repo, `main`, 7 commits, no remote yet)
-**Saved:** 2026-08-16
+**Working dir:** `/Users/macbook/Claude/stay-kit` · **branch** main (pushed, clean)
+**base:** ccf62e5 · **saved:** 2026-08-17T02:10:49Z · PUBLIC at github.com/jakejjlee/stay-kit
 
 ## Status
 
@@ -14,8 +14,8 @@ harness. The repo is PUBLIC at github.com/jakejjlee/stay-kit (Jake's call, so
 Vercel's build machine can install it). Bluebill is untouched and still live on
 its own code; migrating it is the one task left.
 
-**Lincoln, live and public:** https://lincoln-pxeno2yf3-iser-labs.vercel.app
-(/, /apply, /guidebook)
+**Lincoln, live and public:** https://lincoln-hx02gv2cm-iser-labs.vercel.app
+(/, /apply, /guidebook), now with 32 real photographs and Bluebill's section arc.
 
 ```
 PASS naming · PASS secrets · PASS hero 13/13
@@ -115,6 +115,11 @@ the HTML, and passes with the real gate code and wifi password.
 4) **The nav advertised a route that did not exist**, so Next prefetched
    `/apply` into a 404. A module listed in content must have a route.
 5) **The footer used a light-surface text token on a dark background**, 2.53:1.
+6) **The hero had no max-height ladder on the stacked phone layout**, running 127px
+   past the fold on a 320x568 screen and 53px on 320x480. Two rungs added.
+7) **The geometry check flagged Vercel's own injected preview toolbar.** Judging a
+   property on platform tooling it does not control, and which is absent in
+   production. Now exempted.
 
 ## Not started
 
@@ -141,7 +146,30 @@ may imply an online rent payment. Tenant placement carries a 10% fee.
    finished and Lincoln live before then. If leads matter more than the
    architecture, a single honest page for Unit 2 is about an hour of work.
 
-## Next action
+## NEXT ACTION
 
-Build the remaining seven modules, then Task 9. The guidebook module is the
-template to copy.
+Migrate Bluebill onto the kit. It still runs its own code, which is the divergence
+the kit exists to prevent, and it is the only property not benefiting from the
+hero ladder rungs and contrast fixes Lincoln forced. Needs `marketing`, `rates`,
+`rules` and `hold` modules first; `guidebook`, `arrival` and `apply` are done and
+are the pattern. Do it on a branch and merge only when `stay-kit verify` matches
+Bluebill production exactly: hero 13/13, geometry 52/52, axe 0, sweep 40/40. If a
+number is worse, the kit is wrong, not the property.
+
+## Read first (max 3)
+
+- `src/content/types.ts`: the content model and the Secret box.
+- `src/blocks/index.tsx` + `src/blocks/UnitsTable.tsx`: what a property composes.
+- `bin/stay-kit.mjs`: the harness contract every property ships against.
+
+## On resume
+
+1) `git -C /Users/macbook/Claude/stay-kit fetch origin && git -C /Users/macbook/Claude/stay-kit log --oneline ccf62e5..@{u}`.
+2) A property pins the kit by SHA, so bumping the kit means bumping each property's
+   `package.json` and redeploying. Nothing updates automatically.
+3) Then execute NEXT ACTION.
+
+## Related
+
+- `/Users/macbook/Claude/clients/lincoln/docs/superpowers/RESUME-lincoln.md`
+- `/Users/macbook/Claude/clients/bluebill/docs/superpowers/RESUME-tenant-application-guidebook.md`

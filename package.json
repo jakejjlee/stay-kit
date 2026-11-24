@@ -24,6 +24,7 @@
     "vitest": "^3.2.7"
   },
   "dependencies": {
+    "@iserlabs/sign-kit": "github:jakejjlee/sign-kit#v1.0.0",
     "resend": "^4.8.0"
   },
   "exports": {

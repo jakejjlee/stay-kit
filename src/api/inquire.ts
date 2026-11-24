@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import type { Property } from "../content/types";
+import { sendReceipt } from "./inquiry-receipt";
 
 /**
  * The inquiry endpoint, as a factory so every property gets the same
@@ -86,6 +87,9 @@ export function createInquireRoute(property: Property) {
           html,
         });
         if (error) throw new Error(error.message);
+        // The submitter's receipt: their own answers back. Awaited; a failure
+        // logs a named line and never changes the answer below.
+        await sendReceipt(property, { ...body, name, email }, (m) => new Resend(apiKey).emails.send(m));
         return NextResponse.json({ ok: true });
       } catch (err) {
         console.error(`[${property.slug}/inquire] send failed:`, err, JSON.stringify(record));
